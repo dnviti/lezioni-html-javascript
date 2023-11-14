@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Salvadananio</title>
+</head>
+
+<body>
+    <h3 id="title"></h3>
+    <h4 id="datetime"></h4>
+    <button onclick="addMoneyToPiggyBank(1)">
+        <img width="100" name="1" src="img/1.png">
+        <br>
+        <label for="1">1 cent</label>
+    </button>
+    <button onclick="addMoneyToPiggyBank(2)">
+        <img width="100" name="2" src="img/2.png">
+        <br>
+        <label for="2">2 cent</label>
+    </button>
+    <button onclick="addMoneyToPiggyBank(5)">
+        <img width="100" name="5" src="img/5.png">
+        <br>
+        <label for="5">5 cent</label>
+    </button>
+    <button onclick="addMoneyToPiggyBank(10)">
+        <img width="100" name="10" src="img/10.png">
+        <br>
+        <label for="10">10 cent</label>
+    </button>
+    <button onclick="addMoneyToPiggyBank(20)">
+        <img width="100" name="20" src="img/20.png">
+        <br>
+        <label for="20">20 cent</label>
+    </button>
+    <button onclick="addMoneyToPiggyBank(50)">
+        <img width="100" name="50" src="img/50.png">
+        <br>
+        <label for="50">50 cent</label>
+    </button>
+    <button onclick="addMoneyToPiggyBank(100)">
+        <img width="100" name="100" src="img/100.png">
+        <br>
+        <label for="100">1 euro</label>
+    </button>
+    <button onclick="addMoneyToPiggyBank(200)">
+        <img width="100" name="200" src="img/200.png">
+        <br>
+        <label for="200">2 euro</label>
+    </button>
+    <br><br>
+    <img name="piggy-bank" id="piggy-bank-img" width="400" src="img/piggy_bank_new.jpg">
+    <br><br>
+    <b><label id="piggy-bank-label" for="piggy-bank"></label></b>
+    <br><br>
+    <button onclick="setDateTime()">Data</button>
+    <button onclick="setDateTime()">Ora</button>
+    <button onclick="updatePiggyBank(true)">Rompi Salvadanaio</button>
+    <button onclick="resetPiggyBank()">Compra un nuovo salvadanaio</button>
+</body>
+
+</html>
