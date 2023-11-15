@@ -12,50 +12,58 @@
 <body>
     <h3 id="title"></h3>
     <h4 id="datetime"></h4>
-    <button onclick="addMoneyToPiggyBank(1)">
-        <img width="100" name="1" src="img/1.png">
+    <button onmouseover="showTextMoneyOnOver('1-cent', '1-cent')" onmouseout="showTextMoneyOnOver('1-cent', '&nbsp;')"
+        onclick="addMoneyToPiggyBank(1)">
+        <img width="100" src="img/1.png">
         <br>
-        <label for="1">1 cent</label>
+        <span id="1-cent">&nbsp;</span>
     </button>
-    <button onclick="addMoneyToPiggyBank(2)">
-        <img width="100" name="2" src="img/2.png">
+    <button onmouseover="showTextMoneyOnOver('2-cent', '2-cent')" onmouseout="showTextMoneyOnOver('2-cent', '&nbsp;')"
+        onclick="addMoneyToPiggyBank(2)">
+        <img width="100" src="img/2.png">
         <br>
-        <label for="2">2 cent</label>
+        <span id="2-cent">&nbsp;</span>
     </button>
-    <button onclick="addMoneyToPiggyBank(5)">
-        <img width="100" name="5" src="img/5.png">
+    <button onmouseover="showTextMoneyOnOver('5-cent', '5-cent')" onmouseout="showTextMoneyOnOver('5-cent', '&nbsp;')"
+        onclick="addMoneyToPiggyBank(5)">
+        <img width="100" src="img/5.png">
         <br>
-        <label for="5">5 cent</label>
+        <span id="5-cent">&nbsp;</span>
     </button>
-    <button onclick="addMoneyToPiggyBank(10)">
-        <img width="100" name="10" src="img/10.png">
+    <button onmouseover="showTextMoneyOnOver('10-cent', '10-cent')"
+        onmouseout="showTextMoneyOnOver('10-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(10)">
+        <img width="100" src="img/10.png">
         <br>
-        <label for="10">10 cent</label>
+        <span id="10-cent">&nbsp;</span>
     </button>
-    <button onclick="addMoneyToPiggyBank(20)">
-        <img width="100" name="20" src="img/20.png">
+    <button onmouseover="showTextMoneyOnOver('20-cent', '20-cent')"
+        onmouseout="showTextMoneyOnOver('20-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(20)">
+        <img width="100" src="img/20.png">
         <br>
-        <label for="20">20 cent</label>
+        <span id="20-cent">&nbsp;</span>
     </button>
-    <button onclick="addMoneyToPiggyBank(50)">
-        <img width="100" name="50" src="img/50.png">
+    <button onmouseover="showTextMoneyOnOver('50-cent', '50-cent')"
+        onmouseout="showTextMoneyOnOver('50-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(50)">
+        <img width="100" src="img/50.png">
         <br>
-        <label for="50">50 cent</label>
+        <span id="50-cent">&nbsp;</span>
     </button>
-    <button onclick="addMoneyToPiggyBank(100)">
-        <img width="100" name="100" src="img/100.png">
+    <button onmouseover="showTextMoneyOnOver('100-cent', '100-cent')"
+        onmouseout="showTextMoneyOnOver('100-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(100)">
+        <img width="100" src="img/100.png">
         <br>
-        <label for="100">1 euro</label>
+        <span id="100-cent">&nbsp;</span>
     </button>
-    <button onclick="addMoneyToPiggyBank(200)">
-        <img width="100" name="200" src="img/200.png">
+    <button onmouseover="showTextMoneyOnOver('200-cent', '200-cent')"
+        onmouseout="showTextMoneyOnOver('200-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(200)">
+        <img width="100" src="img/200.png">
         <br>
-        <label for="200">2 euro</label>
+        <span id="200-cent">&nbsp;</span>
     </button>
     <br><br>
     <img name="piggy-bank" id="piggy-bank-img" width="400" src="img/piggy_bank_new.jpg">
     <br><br>
-    <b><label id="piggy-bank-label" for="piggy-bank"></label></b>
+    <b><span id="piggy-bank-label" for="piggy-bank"></span></b>
     <br><br>
     <button onclick="setDateTime()">Data</button>
     <button onclick="setDateTime()">Ora</button>

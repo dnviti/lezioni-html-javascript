@@ -79,6 +79,11 @@ function setDateTime() {
         });
 }
 
+function showTextMoneyOnOver(id, text) {
+    var elemLabel = document.getElementById(id);
+    elemLabel.innerHTML = text;
+}
+
 // Codice da eseguire al termine del caricamento del layout
 function onReady() {
     setDateTime();
