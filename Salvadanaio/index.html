@@ -1,74 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Attenzione! alla ricarica della pagina NON si resetta tutto!
+
+        // Imposta la variabile per il totale del salvadanaio
+        var piggyBankValue = 0;
+        var piggyBankBroken = false;
+
+        // funzione per incrementare il valore del salvadanaio
+        function addMoneyToPiggyBank(moneyValue) {
+            if (piggyBankBroken) {
+                return;
+            }
+            piggyBankValue = piggyBankValue + (moneyValue / 100)
+
+        }
+
+        function destroyPiggyBank(destroy) {
+            if (destroy && piggyBankBroken) {
+                return;
+            }
+            // Se non lo rompo lascio il tutto come sta
+            if (!destroy) { return; }
+
+            // Se lo rompo
+            piggyBankBroken = destroy;
+
+            var piggyBankImg = document.getElementById("piggy-bank-img");
+            var piggyBankText = document.getElementById("piggy-bank-label");
+            if (!piggyBankBroken) {
+                piggyBankText.innerHTML = "Il salvadanaio è ancora intatto";
+                piggyBankImg.src = "img/piggy_bank_new.jpg";
+                return;
+            }
+            if (piggyBankValue == 0) {
+                piggyBankText.innerHTML = "Hai rotto il salvadanaio ed è vuoto!";
+                piggyBankImg.src = "img/piggy_bank_empty.jpg";
+            }
+            else {
+                piggyBankText.innerHTML = "Hai rotto il salvadanaio e hai trovato " + piggyBankValue + " euro!";
+                piggyBankImg.src = "img/piggy_bank_full.jpg";
+            }
+        }
+
+        function showTextMoneyOnOver(id, text) {
+            var elemLabel = document.getElementById(id);
+            elemLabel.innerHTML = text;
+        }
+    </script>
     <title>Salvadananio</title>
 </head>
 
 <body>
     <h3 id="title"></h3>
     <h4 id="datetime"></h4>
-    <button onmouseover="showTextMoneyOnOver('1-cent', '1-cent')" onmouseout="showTextMoneyOnOver('1-cent', '&nbsp;')"
-        onclick="addMoneyToPiggyBank(1)">
-        <img width="100" src="img/1.png">
-        <br>
-        <span id="1-cent">&nbsp;</span>
-    </button>
-    <button onmouseover="showTextMoneyOnOver('2-cent', '2-cent')" onmouseout="showTextMoneyOnOver('2-cent', '&nbsp;')"
-        onclick="addMoneyToPiggyBank(2)">
-        <img width="100" src="img/2.png">
-        <br>
-        <span id="2-cent">&nbsp;</span>
-    </button>
-    <button onmouseover="showTextMoneyOnOver('5-cent', '5-cent')" onmouseout="showTextMoneyOnOver('5-cent', '&nbsp;')"
-        onclick="addMoneyToPiggyBank(5)">
-        <img width="100" src="img/5.png">
-        <br>
-        <span id="5-cent">&nbsp;</span>
-    </button>
-    <button onmouseover="showTextMoneyOnOver('10-cent', '10-cent')"
-        onmouseout="showTextMoneyOnOver('10-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(10)">
-        <img width="100" src="img/10.png">
-        <br>
-        <span id="10-cent">&nbsp;</span>
-    </button>
-    <button onmouseover="showTextMoneyOnOver('20-cent', '20-cent')"
-        onmouseout="showTextMoneyOnOver('20-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(20)">
-        <img width="100" src="img/20.png">
-        <br>
-        <span id="20-cent">&nbsp;</span>
-    </button>
-    <button onmouseover="showTextMoneyOnOver('50-cent', '50-cent')"
-        onmouseout="showTextMoneyOnOver('50-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(50)">
-        <img width="100" src="img/50.png">
-        <br>
-        <span id="50-cent">&nbsp;</span>
-    </button>
-    <button onmouseover="showTextMoneyOnOver('100-cent', '100-cent')"
-        onmouseout="showTextMoneyOnOver('100-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(100)">
-        <img width="100" src="img/100.png">
-        <br>
-        <span id="100-cent">&nbsp;</span>
-    </button>
-    <button onmouseover="showTextMoneyOnOver('200-cent', '200-cent')"
-        onmouseout="showTextMoneyOnOver('200-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(200)">
-        <img width="100" src="img/200.png">
-        <br>
-        <span id="200-cent">&nbsp;</span>
-    </button>
+
+    <table>
+        <tr>
+            <td><img width="100" src="img/1.png" onmouseover="showTextMoneyOnOver('1-cent', '1 centesimo')"
+                onmouseout="showTextMoneyOnOver('1-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(1)"></td>
+            <td><img width="100" src="img/2.png" onmouseover="showTextMoneyOnOver('2-cent', '2 centesimi')"
+                onmouseout="showTextMoneyOnOver('2-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(2)"></td>
+            <td><img width="100" src="img/5.png" onmouseover="showTextMoneyOnOver('5-cent', '5 centesimi')"
+                onmouseout="showTextMoneyOnOver('5-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(5)"></td>
+            <td><img width="100" src="img/10.png" onmouseover="showTextMoneyOnOver('10-cent', '10 centesimi')"
+                onmouseout="showTextMoneyOnOver('10-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(10)"></td>
+            <td><img width="100" src="img/20.png" onmouseover="showTextMoneyOnOver('20-cent', '20 centesimi')"
+                onmouseout="showTextMoneyOnOver('20-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(20)"></td>
+            <td><img width="100" src="img/50.png" onmouseover="showTextMoneyOnOver('50-cent', '50 centesimi')"
+                onmouseout="showTextMoneyOnOver('50-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(50)"></td>
+            <td><img width="100" src="img/100.png" onmouseover="showTextMoneyOnOver('100-cent', '1 euro')"
+                onmouseout="showTextMoneyOnOver('100-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(100)"></td>
+            <td><img width="100" src="img/200.png" onmouseover="showTextMoneyOnOver('200-cent', '2 euro')"
+                onmouseout="showTextMoneyOnOver('200-cent', '&nbsp;')" onclick="addMoneyToPiggyBank(200)"></td>
+        </tr>
+        <tr>
+            <td><span id="1-cent">&nbsp;</span></td>
+            <td><span id="2-cent">&nbsp;</span></td>
+            <td><span id="5-cent">&nbsp;</span></td>
+            <td><span id="10-cent">&nbsp;</span></td>
+            <td><span id="20-cent">&nbsp;</span></td>
+            <td><span id="50-cent">&nbsp;</span></td>
+            <td><span id="100-cent">&nbsp;</span></td>
+            <td><span id="200-cent">&nbsp;</span></td>
+        </tr>
+    </table>
+
     <br><br>
     <img name="piggy-bank" id="piggy-bank-img" width="400" src="img/piggy_bank_new.jpg">
     <br><br>
     <b><span id="piggy-bank-label" for="piggy-bank"></span></b>
     <br><br>
-    <button onclick="setDateTime()">Data</button>
-    <button onclick="setDateTime()">Ora</button>
-    <button onclick="updatePiggyBank(true)">Rompi Salvadanaio</button>
-    <button onclick="resetPiggyBank()">Compra un nuovo salvadanaio</button>
+    <input type="button" value="Data">
+    <input type="button" value="Ora">
+    <input type="button" onclick="destroyPiggyBank(true)" value="Rompi Salvadanaio">
 </body>
 
 </html>
