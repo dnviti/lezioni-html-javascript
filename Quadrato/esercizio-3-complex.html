@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 3 Complex</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        function insertImage(event, imageNum) {
+            event.target.innerHTML = '<img src="./num/num-' + imageNum + '.png" alt="Image" style="width:100%;height:100%;">';
+        }
+    </script>
+</head>
+<body>
+    <table id="myTable">
+        <!-- Table rows will be added here dynamically -->
+    </table>
+    <script>
+        var rows = 3; // Number of rows
+        var cols = 3; // Number of cols
+        var table = document.getElementById('myTable');
+
+        function createTable() {
+            for (var i = 0; i < rows; i++) {
+                var row = table.insertRow(i);
+                for (var j = 0; j < cols; j++) {
+                    var cell = row.insertCell(j);
+                    // Assign an event listener that calls insertImage with the correct imageNum
+                    (function (cell, imageNum) {
+                        cell.addEventListener("click", function(event) {
+                            insertImage(event, imageNum);
+                        });
+                    })(cell, j + 1); // imageNum should start from 1
+                }
+            }
+        }
+        createTable(); // Create table on load
+    </script>
+</body>
+</html>
