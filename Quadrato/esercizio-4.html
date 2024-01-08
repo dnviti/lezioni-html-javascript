@@ -2,72 +2,65 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Exercise 4</title>
-<style>
-  body {
-    background-color: lightblue;
-  }
-  table {
-    border-collapse: collapse;
-    margin: 20px;
-  }
-  table, th, td {
-    border: 1px solid black;
-  }
-  td {
-    width: 50px;
-    height: 50px;
-  }
-  .red {
-    background-color: red;
-  }
-</style>
+<title>Esercizio 4</title>
 </head>
-<body>
+<body bgcolor="lightblue">
 
-<table id="myTable">
-  <!-- Table rows will be added here dynamically -->
+<table border="1">
+  <tr>
+    <td bgcolor="red" width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+  </tr>
+  <tr>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+  </tr>
+  <tr>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+  </tr>
+  <tr>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+    <td width="50" height="50" border="1"></td>
+  </tr>
 </table>
 
-<button onclick="addRed()">Add Red</button>
+<button onclick="addRed()">Aggiungi Rosso</button>
 
 <script>
-// Initial setup
-var rows = 4; // Number of rows
-var cols = 4; // Number of cols
-var table = document.getElementById('myTable');
-
-// Function to create initial table with one red cell
-function createTable() {
-  for (var i = 0; i < rows; i++) {
-    var row = table.insertRow(i);
-    for (var j = 0; j < cols; j++) {
-      var cell = row.insertCell(j);
-      if (i === 0 && j === 0) {
-        cell.className = 'red';
-      }
-    }
-  }
-}
+  var rows = 4
+  var cols = 4
+  var fine = rows*cols
+  var nextRed = 1;
 
 // Function to add red cells
 function addRed() {
-  var redCells = document.getElementsByClassName('red');
-  var nextRed = redCells.length;
-  var added = false;
+  if(nextRed===fine){
+    alert("Celle finite")
+    return
+  }
+  
+  var cells = document.getElementsByTagName('td');
 
-  for (var i = 0; i < rows && !added; i++) {
-    for (var j = 0; j < cols && !added; j++) {
-      var cellIndex = i * cols + j;
+  for (var i = 0; i < rows; i++) {
+    for (var j = 0; j < cols; j++) {
+      var cellIndex = i * cols + j
       if (cellIndex === nextRed) {
-        table.rows[i].cells[j].className = 'red';
-        added = true;
+        cells[nextRed].style.backgroundColor = 'red'
+        nextRed++;
+        return
       }
     }
   }
 }
-
-createTable(); // Create table on load
 </script>
 
 </body>
